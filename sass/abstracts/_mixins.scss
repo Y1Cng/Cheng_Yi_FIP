@@ -48,7 +48,7 @@
     border: 1px solid $color-gray-300;
 
     &:hover {
-        background-color: lighten($color-gray-300, 20%);
+        background-color: $color-white;
     }
 }
 
