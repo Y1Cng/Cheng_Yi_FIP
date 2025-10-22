@@ -1,1 +1,58 @@
 @use '../abstracts' as *;
+
+/* Hero Section Styles */
+.hero-section {
+    padding: $spacing-3xl $spacing-3xl;
+
+    @include mobile {
+        padding: $spacing-xl $spacing-md;
+    }
+
+    .hero-content {
+        max-width: 56rem;
+        margin: 0 auto;
+        text-align: center;
+
+        .hero-title {
+            font-size: 2.25rem;
+            color: $color-text-light;
+            margin-bottom: $spacing-xl;
+
+            @include mobile {
+                font-size: 1.875rem;
+                margin-bottom: $spacing-lg;
+            }
+        }
+
+        .hero-description {
+            font-family: $font-secondary;
+            font-size: 0.875rem;
+            color: $color-text-light;
+            line-height: 1.625;
+            max-width: 42rem;
+            margin: 0 auto;
+
+            @include mobile {
+                font-size: 0.8rem;
+                padding: 0 $spacing-sm;
+            }
+        }
+
+        .social-icons {
+            @include flex-center;
+            gap: $spacing-xl;
+            margin-top: $spacing-2xl;
+
+            @include mobile {
+                gap: $spacing-lg;
+                margin-top: $spacing-xl;
+                flex-wrap: wrap;
+            }
+
+            .social-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+}

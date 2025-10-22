@@ -4,11 +4,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portfolio - Yi Cheng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body class="bg-white text-gray-600">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-4 md:px-16 py-4 md:py-8">
+        <!-- Logo Section -->
+        <div class="flex items-center gap-2 md:gap-4">
+            <div class="relative">
+                <img src="./images/profile-image.png" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
+                <!-- <img src="./images/profile-icon.png" alt="Icon" class="absolute -bottom-1 -left-1 w-6 h-5"> -->
+            </div>
 
+            <div class="relative">
+                <div class="bg-gray-300 rounded-full px-4 py-2">
+                    <span class="text-white text-xs font-medium">Hire Me!</span>
+                </div>
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110">
+                </div>
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn"
+            class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer"
+            aria-label="Menu">
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="#" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">About Me</a>
+            <a href="#" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Contact</a>
+            <a href="#" class="text-gray-500 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+        </nav>
+
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobileMenu"
+            class="fixed top-0 left-0 w-full h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
+            <div class="flex flex-col items-center justify-center h-full gap-8">
+                <button id="closeMobileMenu" class="absolute top-4 right-4 text-gray-500 text-3xl">&times;</button>
+                <a href="#" class="text-gray-500 text-2xl hover:text-gray-600 transition-colors">About Me</a>
+                <a href="#" class="text-gray-500 text-2xl hover:text-gray-600 transition-colors">Contact</a>
+                <a href="#" class="text-gray-500 text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+            </div>
+        </nav>
+
+        <!-- Profile Icon -->
+        <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
+            <img src="./images/menu-profile-image.png" alt="Profile" class="w-8 h-8 rounded-full">
+            <img src="./images/notification-icon.png" alt="Notification" class="w-5 h-4">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="px-4 md:px-16 py-8 md:py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl text-gray-500 mb-6 md:mb-8">Hi there!</h1>
+            <p class="font-secondary text-sm text-gray-500 leading-relaxed max-w-2xl mx-auto px-2 md:px-0">
+                I'm a web designer, developer, and motion graphics artist with a passion for turning ideas into digital
+                experiences that look stunning, work flawlessly, and leave a lasting impression.
+                <br><br>
+                When I'm not writing clean code or crafting smooth animations, you'll find me obsessing over user flows,
+                experimenting with new design trends, or as I like to call it: "strategic meditation" (wink).
+            </p>
+
+            <!-- Social Icons -->
+            <div class="flex justify-center flex-wrap gap-4 md:gap-8 mt-8 md:mt-12">
+                <img src="./images/social-icon-instagram.png" alt="Instagram" class="w-6 h-6">
+                <img src="./images/social-icon-facebook.png" alt="Facebook" class="w-6 h-6">
+                <img src="./images/social-icon-pinterest.png" alt="Pinterest" class="w-6 h-6">
+                <img src="./images/social-icon-linkedin.png" alt="LinkedIn" class="w-6 h-6">
+                <img src="./images/social-icon-rss.png" alt="RSS" class="w-6 h-6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="px-4 md:px-16 py-8 md:py-16">
+        <div class="max-w-4xl mx-auto text-center">
+            <!-- <h2 class="text-2xl md:text-3xl text-gray-500 mb-6 md:mb-8">My Work</h2> -->
+            <div class="bg-gray-300 rounded-lg overflow-hidden">
+                <video class="w-full h-64 md:h-96 object-cover" controls poster="./images/image-placeholder.png">
+                    <source src="./video/demo-video.mp4" type="video/mp4">
+                    <source src="./video/demo-video.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p class="font-secondary text-gray-500 text-sm mt-4">A showcase of my projects and creative process
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="px-4 md:px-16 py-4 md:py-8">
+        <div class="flex justify-center">
+            <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4" id="filterButtons">
+                <button
+                    class="bg-gray-500 text-white px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-600 transition-colors"
+                    data-filter="all">
+                    All <span class="ml-2 text-xs">99</span>
+                </button>
+                <button
+                    class="border border-gray-300 text-gray-500 px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    data-filter="ui-ux">
+                    UI & UX
+                </button>
+                <button
+                    class="border border-gray-300 text-gray-500 px-4 md:px-8 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    data-filter="motion">
+                    Motion Graphics
+                </button>
+                <button
+                    class="border border-gray-300 text-gray-500 px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    data-filter="rebrand">
+                    Rebrand
+                </button>
+                <button
+                    class="border border-gray-300 text-gray-500 px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    data-filter="backend">
+                    Backend
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="px-4 md:px-16 py-8 md:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Project 1 -->
+            <article class="project-card" data-category="ui-ux">
+                <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
+                    <img src="./images/image-placeholder.png" alt="Project Thumbnail"
+                        class="center-icon w-16 h-14 md:w-24 md:h-20">
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-2">- UI & UX -</p>
+                    <p class="text-gray-500 text-sm mb-2">(013)</p>
+                    <h3 class="text-gray-500 font-medium mb-2">Project Lorem Ipsum Dolor</h3>
+                    <p class="font-secondary text-gray-500 text-xs">Lorem ipsum dolor sit amet</p>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card" data-category="backend">
+                <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
+                    <img src="./images/image-placeholder.png" alt="Project Thumbnail"
+                        class="center-icon w-16 h-14 md:w-24 md:h-20">
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-2">- Backend -</p>
+                    <p class="text-gray-500 text-sm mb-2">(016)</p>
+                    <h3 class="text-gray-500 font-medium mb-2">Project Lorem Ipsum Dolor</h3>
+                    <p class="font-secondary text-gray-500 text-xs">Lorem ipsum dolor sit amet</p>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card" data-category="rebrand">
+                <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
+                    <img src="./images/image-placeholder.png" alt="Project Thumbnail"
+                        class="center-icon w-16 h-14 md:w-24 md:h-20">
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-2">- Rebranding -</p>
+                    <p class="text-gray-500 text-sm mb-2">(004)</p>
+                    <h3 class="text-gray-500 font-medium mb-2">Project Lorem Ipsum Dolor</h3>
+                    <p class="font-secondary text-gray-500 text-xs">Lorem ipsum dolor sit amet</p>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card" data-category="ui-ux">
+                <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
+                    <img src="./images/image-placeholder.png" alt="Project Thumbnail"
+                        class="center-icon w-16 h-14 md:w-24 md:h-20">
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-2">- UI & UX -</p>
+                    <p class="text-gray-500 text-sm mb-2">(021)</p>
+                    <h3 class="text-gray-500 font-medium mb-2">Project Lorem Ipsum Dolor</h3>
+                    <p class="font-secondary text-gray-500 text-xs">Lorem ipsum dolor sit amet</p>
+                </div>
+            </article>
+
+            <!-- Project 5 -->
+            <article class="project-card" data-category="motion">
+                <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
+                    <img src="./images/image-placeholder.png" alt="Project Thumbnail"
+                        class="center-icon w-16 h-14 md:w-24 md:h-20">
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-2">- Motion Graphics -</p>
+                    <p class="text-gray-500 text-sm mb-2">(010)</p>
+                    <h3 class="text-gray-500 font-medium mb-2">Project Lorem Ipsum Dolor</h3>
+                    <p class="font-secondary text-gray-500 text-xs">Lorem ipsum dolor sit amet</p>
+                </div>
+            </article>
+
+            <!-- Project 6 -->
+            <article class="project-card" data-category="backend">
+                <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
+                    <img src="./images/image-placeholder.png" alt="Project Thumbnail"
+                        class="center-icon w-16 h-14 md:w-24 md:h-20">
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-2">- Backend -</p>
+                    <p class="text-gray-500 text-sm mb-2">(031)</p>
+                    <h3 class="text-gray-500 font-medium mb-2">Project Lorem Ipsum Dolor</h3>
+                    <p class="font-secondary text-gray-500 text-xs">Lorem ipsum dolor sit amet</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-4 md:px-16 py-8 md:py-16 text-center">
+        <button class="bg-gray-300 rounded-full p-3 md:p-4 mb-6 md:mb-8 hover:bg-gray-400 transition-colors">
+            <img src="./images/up-arrow-btn.png" alt="Back to top" class="w-5 h-5 md:w-6 md:h-6">
+        </button>
+        <p class="font-secondary text-gray-500 text-xs">@Yi Cheng. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

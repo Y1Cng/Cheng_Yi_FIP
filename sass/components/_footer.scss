@@ -1,1 +1,46 @@
 @use '../abstracts' as *;
+
+/* Footer Styles */
+.site-footer {
+    padding: $spacing-3xl $spacing-3xl;
+    text-align: center;
+
+    @include mobile {
+        padding: $spacing-xl $spacing-md;
+    }
+
+    .back-to-top {
+        background-color: $color-gray-300;
+        border-radius: $border-radius-full;
+        padding: $spacing-md;
+        margin-bottom: $spacing-xl;
+        border: none;
+        cursor: pointer;
+        transition: $transition-base;
+
+        @include mobile {
+            padding: $spacing-sm;
+            margin-bottom: $spacing-lg;
+        }
+
+        &:hover {
+            background-color: $color-gray-400;
+        }
+
+        .back-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+
+            @include mobile {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+        }
+    }
+
+    .copyright {
+        font-family: $font-secondary;
+        color: $color-text-light;
+        font-size: 0.75rem;
+    }
+}
