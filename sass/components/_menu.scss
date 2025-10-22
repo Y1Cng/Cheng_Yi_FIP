@@ -1,2 +1,37 @@
 /* scss/components/_menu.scss */
 @use '../abstracts/variables' as var;
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+// 移动端菜单样式
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var.$color-background;
+    z-index: 999;
+
+    // 关键点：默认隐藏，并设置过渡 (Transition) 效果
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+// 通过 JS 切换的类
+.mobile-menu.is-active {
+    transform: translateX(0);
+}
+
+// 汉堡包按钮样式 (使用主强调色)
+.menu-toggle-btn {
+    font-size: 2.5rem;
+    color: var.$color-primary-accent;
+    cursor: pointer;
+    z-index: 1000;
+}

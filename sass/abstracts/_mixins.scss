@@ -1,1 +1,119 @@
 @use 'variables' as *;
+
+/* Flex mixins */
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Button mixins */
+@mixin button-base {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-full;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-base;
+    border: none;
+    font-size: 0.875rem;
+}
+
+@mixin button-primary {
+    @include button-base;
+    background-color: $color-gray-500;
+    color: $color-white;
+
+    &:hover {
+        background-color: $color-gray-600;
+    }
+}
+
+@mixin button-secondary {
+    @include button-base;
+    background-color: transparent;
+    color: $color-text-light;
+    border: 1px solid $color-gray-300;
+
+    &:hover {
+        background-color: lighten($color-gray-300, 20%);
+    }
+}
+
+/* Grid mixins */
+@mixin grid($columns: 3, $gap: $spacing-xl) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+/* Container mixins */
+@mixin container {
+    max-width: $breakpoint-xl;
+    margin: 0 auto;
+    padding: 0 $spacing-3xl;
+
+    @include mobile {
+        padding: 0 $spacing-md;
+    }
+}
+
+@mixin section-spacing {
+    padding: $spacing-3xl $spacing-3xl;
+
+    @include mobile {
+        padding: $spacing-xl $spacing-md;
+    }
+}
+
+/* Responsive mixins */
+@mixin mobile {
+    @media (max-width: #{$breakpoint-sm - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-md - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$breakpoint-md}) {
+        @content;
+    }
+}
+
+@mixin large-desktop {
+    @media (min-width: #{$breakpoint-lg}) {
+        @content;
+    }
+}
+
+/* Grid responsive mixin */
+@mixin responsive-grid($mobile: 1, $tablet: 2, $desktop: 3, $gap: $spacing-xl) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($mobile, 1fr);
+
+    @include tablet {
+        grid-template-columns: repeat($tablet, 1fr);
+    }
+
+    @include desktop {
+        grid-template-columns: repeat($desktop, 1fr);
+    }
+}

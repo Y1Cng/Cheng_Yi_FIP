@@ -1,1 +1,89 @@
 @use '../abstracts' as *;
+
+/* Base Typography */
+body {
+    font-family: $font-primary;
+    color: $color-body-text;
+    line-height: 1.6;
+}
+
+/* Font family utilities */
+.font-secondary {
+    font-family: $font-secondary;
+}
+
+/* Headings */
+h1 {
+    font-size: 2.25rem; // text-4xl equivalent
+    color: $color-text-light;
+    margin-bottom: $spacing-xl;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 1.875rem; // text-3xl equivalent
+    color: $color-text-light;
+    margin-bottom: $spacing-lg;
+}
+
+h3 {
+    font-size: 1rem;
+    color: $color-text-light;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+}
+
+/* Text sizes */
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-base {
+    font-size: 1rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+/* Text colors */
+.text-white {
+    color: $color-white;
+}
+
+.text-gray-400 {
+    color: $color-gray-400;
+}
+
+.text-gray-500 {
+    color: $color-gray-500;
+}
+
+.text-gray-600 {
+    color: $color-gray-600;
+}
+
+/* Text utilities */
+.text-center {
+    text-align: center;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.leading-relaxed {
+    line-height: 1.625;
+}
