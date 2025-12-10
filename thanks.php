@@ -29,10 +29,6 @@
             <a href="contact.php" class="nav-link text-xl lg:text-2xl transition-colors">Contact</a>
             <a href="index.php" class="nav-link text-xl lg:text-2xl transition-colors">Portfolio</a>
         </nav>
-        <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
-            <img src="./images/menu-profile-image.png" alt="Profile" class="w-8 h-8 rounded-full">
-            <img src="./images/notification-icon.png" alt="Notification" class="w-5 h-4">
-        </div>
     </header>
 
     <main>
