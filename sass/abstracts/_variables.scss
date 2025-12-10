@@ -1,29 +1,35 @@
 // Typography
-$font-main: 'Inter', sans-serif;
+$font-main: 'Roboto', sans-serif;
 $font-primary: 'Poppins', sans-serif;
 $font-secondary: 'Roboto', sans-serif;
 
-// Colors
-$color-text: #888;
-$color-text-dark: #666;
-$color-active: #444;
-$color-bg: #fff;
+// Design System Colors
+$color-headings: #0D0D0D;
+$color-body-text: #6E7B8B;
+$color-primary-accent: #FF6F61;
+$color-secondary-accent: #A8E6CF;
+$color-background: #F8F8F8;
+
+// Colors (mapped to design system)
+$color-text: $color-body-text;
+$color-text-dark: $color-headings;
+$color-active: $color-headings;
+$color-bg: $color-background;
 $color-light-gray: #eee;
-$color-active-bg: #888;
+$color-active-bg: $color-primary-accent;
 
 // Gray Scale (for Tailwind compatibility)
 $color-white: #ffffff;
-$color-black: #000000;
+$color-black: $color-headings;
 $color-gray-300: #d1d5db;
 $color-gray-400: #9ca3af;
 $color-gray-500: #6b7280;
-$color-gray-600: #4b5563;
+$color-gray-600: $color-body-text;
 
 // Background Colors
-$color-background: $color-white;
-$color-body-text: $color-gray-600;
-$color-text-light: $color-gray-500;
-$color-text-lighter: $color-gray-400;
+$color-body-text: $color-body-text;
+$color-text-light: $color-body-text;
+$color-text-lighter: #9ca3af;
 
 // Spacing
 $spacing-xs: 0.25rem;

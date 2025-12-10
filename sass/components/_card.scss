@@ -108,7 +108,7 @@
     }
 
     .projects-grid {
-        @include responsive-grid(1, 2, 3, $spacing-xl);
+        @include responsive-grid-breakpoints(1, 2, 3, $spacing-xl);
 
         @include mobile {
             gap: $spacing-lg;

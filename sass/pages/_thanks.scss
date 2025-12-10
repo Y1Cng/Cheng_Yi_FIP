@@ -36,13 +36,16 @@
 
         h1 {
             font-size: 2rem;
-            color: $color-active;
+            color: $color-headings;
             margin-bottom: $spacing-sm;
+            font-family: $font-primary, sans-serif !important; // Poppins SemiBold
+            font-weight: 600 !important;
         }
 
         p {
             font-size: 1rem;
-            color: $color-text;
+            color: $color-body-text;
+            font-family: $font-secondary, sans-serif !important; // Roboto Regular
         }
     }
 }

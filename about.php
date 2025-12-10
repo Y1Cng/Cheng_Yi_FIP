@@ -1,3 +1,17 @@
+<?php
+require_once('includes/connect.php');
+
+$query = "SELECT * FROM project LIMIT 4";
+$results = mysqli_query($connect, $query);
+
+$imageMap = array(
+    'flowsonic' => 'flowsonic_earbuds_x-ray_1_0000.jpg',
+    'sports' => 'stadium_1_1582.jpg',
+    'quatro' => 'quatro-project-outdoor.jpg',
+    'contact' => 'backend project image.png',
+    'portfolio contact' => 'backend project image.png'
+);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,25 +39,39 @@
             </div>
 
             <div class="relative">
-                <div class="rounded-full px-4 py-2" style="background-color: #FF6F61;">
-                    <span class="text-xs font-medium"
-                        style="color: #FFFFFF; font-family: 'Poppins', sans-serif; font-weight: 600;">Hire Me!</span>
+                <div class="hire-me-btn rounded-full px-4 py-2">
+                    <span class="hire-me-text text-xs font-medium">Hire Me!</span>
                 </div>
-                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110">
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110 pointer-events-none">
                 </div>
-                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5 pointer-events-none">
             </div>
         </div>
 
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn"
+            class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer"
+            aria-label="Menu">
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+        </button>
+
         <!-- Navigation -->
-        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
-            <a href="about.html" class="text-xl lg:text-2xl transition-colors" style="color: #0D0D0D;"
-                onmouseover="this.style.color='#FF6F61'" onmouseout="this.style.color='#0D0D0D'">About
-                Me</a>
-            <a href="contact.php" class="text-xl lg:text-2xl transition-colors" style="color: #6E7B8B;"
-                onmouseover="this.style.color='#0D0D0D'" onmouseout="this.style.color='#6E7B8B'">Contact</a>
-            <a href="index.php" class="text-xl lg:text-2xl transition-colors" style="color: #6E7B8B;"
-                onmouseover="this.style.color='#0D0D0D'" onmouseout="this.style.color='#6E7B8B'">Portfolio</a>
+        <nav class="main-nav hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="about.php" class="nav-link active text-xl lg:text-2xl transition-colors">About Me</a>
+            <a href="contact.php" class="nav-link text-xl lg:text-2xl transition-colors">Contact</a>
+            <a href="index.php" class="nav-link text-xl lg:text-2xl transition-colors">Portfolio</a>
+        </nav>
+
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobileMenu" class="overlay">
+            <button id="closeMobileMenu" class="absolute top-4 right-4 text-3xl" style="color: #6E7B8B; background: none; border: none; cursor: pointer; font-size: 2rem;">&times;</button>
+            <div class="flex flex-col items-center justify-center h-full gap-8">
+                <a href="about.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">About Me</a>
+                <a href="contact.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">Contact</a>
+                <a href="index.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">Portfolio</a>
+            </div>
         </nav>
 
     </header>
@@ -86,6 +114,25 @@
                     style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #0D0D0D;">Explore my featured
                     projects below</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <?php
+                    while($row = mysqli_fetch_array($results)) {
+                        $projectName = strtolower($row['project']);
+                        $projectImage = './images/image-placeholder.png';
+                        
+                        foreach($imageMap as $key => $image) {
+                            if(strpos($projectName, $key) !== false) {
+                                $encodedImage = str_replace(' ', '%20', $image);
+                                $projectImage = './images/'.$encodedImage;
+                                break;
+                            }
+                        }
+                        
+                        echo '<a href="detail.php?id='.$row['id'].'" class="bg-gray-300 h-32 md:h-48 rounded-lg overflow-hidden relative group">
+                            <img src="'.$projectImage.'" alt="'.htmlspecialchars($row['project'], ENT_QUOTES, 'UTF-8').'"
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" onerror="this.src=\'./images/image-placeholder.png\'">
+                        </a>';
+                    }
+                    ?>
                 </div>
             </div>
         </section>

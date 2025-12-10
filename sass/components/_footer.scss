@@ -1,5 +1,25 @@
 @use '../abstracts' as *;
 
+footer {
+    text-align: center;
+    padding-top: 1rem !important;
+    padding-bottom: 1.5rem !important;
+
+    @media (min-width: 768px) {
+        padding-top: 1.5rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .back-to-top {
+        display: inline-flex;
+        margin: 0 auto;
+    }
+
+    .copyright {
+        margin-top: 1rem;
+    }
+}
+
 .footer {
     padding: $spacing-lg 0;
     border-top: 1px solid $color-light-gray;
@@ -49,7 +69,8 @@
 
     .copyright {
         font-family: $font-secondary;
-        color: $color-text-light;
+        color: $color-body-text;
         font-size: 0.75rem;
+        margin-top: 1rem;
     }
 }

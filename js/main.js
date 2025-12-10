@@ -17,11 +17,9 @@
         });
 
         filterBtns.forEach(btn => {
-            btn.classList.remove('active', 'bg-gray-500', 'text-white');
-            btn.classList.add('border', 'border-gray-300', 'text-gray-500');
+            btn.classList.remove('active');
             if (btn.dataset.filter === category) {
-                btn.classList.add('active', 'bg-gray-500', 'text-white');
-                btn.classList.remove('border', 'border-gray-300', 'text-gray-500');
+                btn.classList.add('active');
             }
         });
     }
@@ -37,13 +35,15 @@
 
     function openMobileMenu() {
         if (mobileMenu) {
-            mobileMenu.style.transform = 'translateX(0)';
+            mobileMenu.classList.add('open');
+            document.body.classList.add('no-scroll');
         }
     }
 
     function closeMobileMenuHandler() {
         if (mobileMenu) {
-            mobileMenu.style.transform = 'translateX(-100%)';
+            mobileMenu.classList.remove('open');
+            document.body.classList.remove('no-scroll');
         }
     }
 

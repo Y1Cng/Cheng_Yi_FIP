@@ -1,18 +1,18 @@
 @use '../abstracts' as *;
 
 .back-to-top {
-    position: fixed;
-    bottom: $spacing-lg;
-    right: $spacing-lg;
-    width: 40px;
-    height: 40px;
-    border: 1px solid $color-light-gray;
+    position: static;
+    background-color: $color-secondary-accent;
     border-radius: 50%;
-    @include flex-center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
+    border: none;
+    margin: 0 auto;
 
     &:hover {
-        border-color: $color-text;
+        background-color: $color-primary-accent;
     }
 
     @media (max-width: 480px) {
@@ -20,4 +20,3 @@
         right: $spacing-md;
     }
 }
-

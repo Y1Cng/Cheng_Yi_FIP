@@ -12,8 +12,10 @@
 
     h1 {
         font-size: 2.5rem;
-        color: $color-active;
+        color: $color-headings;
         margin-bottom: $spacing-lg;
+        font-family: $font-primary, sans-serif !important; // Poppins SemiBold
+        font-weight: 600 !important;
 
         @media (max-width: 768px) {
             font-size: 2rem;
@@ -27,6 +29,8 @@
         p {
             margin-bottom: $spacing-md;
             font-size: 1rem;
+            font-family: $font-secondary, sans-serif !important; // Roboto Regular
+            color: $color-body-text;
         }
     }
 
@@ -54,18 +58,20 @@
             label {
                 display: block;
                 font-size: 0.9rem;
-                color: $color-text;
+                color: $color-body-text;
                 margin-bottom: $spacing-xs;
+                font-family: $font-secondary, sans-serif !important; // Roboto Regular
             }
 
             input,
             textarea {
                 width: 100%;
                 padding: 0.75rem;
-                border: 1px solid $color-text;
+                border: 1px solid $color-body-text;
                 border-radius: $border-radius;
-                font-family: $font-main;
+                font-family: $font-secondary, sans-serif !important; // Roboto Regular
                 font-size: 1rem;
+                color: $color-headings;
             }
 
             textarea {

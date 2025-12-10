@@ -26,6 +26,7 @@
 // 通过 JS 切换的类
 .mobile-menu.is-active {
     transform: translateX(0);
+    background-color: #fff;
 }
 
 // 汉堡包按钮样式 (使用主强调色)

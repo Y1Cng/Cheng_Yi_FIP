@@ -1,16 +1,6 @@
 @use '../abstracts' as *;
 
-/* Base layout styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: $color-background;
-    min-height: 100vh;
-}
+/* Base layout styles - removed duplicate body and * definitions */
 
 /* Container utilities */
 .container {

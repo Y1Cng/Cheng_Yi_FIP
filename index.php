@@ -22,7 +22,7 @@ $results = mysqli_query($connect, $query);
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.8.3/plyr.css" />
@@ -30,31 +30,31 @@ $results = mysqli_query($connect, $query);
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="bg-white text-gray-600">
+<body>
     <!-- Header -->
     <header class="flex items-center justify-between px-4 md:px-16 py-4 md:py-8">
         <!-- Logo Section -->
         <div class="flex items-center gap-2 md:gap-4">
             <div class="relative">
-                <img src="./images/profile-image.png" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
+                <img src="./images/profile-image.svg" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
             </div>
 
             <div class="relative">
-                <div class="bg-gray-300 rounded-full px-4 py-2">
-                    <span class="text-white text-xs font-medium">Hire Me!</span>
+                <div class="hire-me-btn rounded-full px-4 py-2">
+                    <span class="hire-me-text text-xs font-medium">Hire Me!</span>
                 </div>
-                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110">
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110 pointer-events-none">
                 </div>
-                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5 pointer-events-none">
             </div>
         </div>
 
         <!-- Search Form -->
         <form action="" class="hidden md:flex items-center gap-2">
-            <div class="flex items-center border border-gray-300 rounded-full px-4 py-2">
+            <div class="search-input-wrapper flex items-center border rounded-full px-4 py-2">
                 <input type="text" class="search-input bg-transparent border-none outline-none text-sm" placeholder="Search projects..." name="search" value="<?php echo htmlspecialchars($s, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
-            <button class="search-btn bg-gray-500 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition-colors" type="submit">
+            <button class="search-btn px-4 py-2 rounded-full text-sm transition-colors" type="submit">
                 <span>Search</span>
             </button>
         </form>
@@ -69,36 +69,30 @@ $results = mysqli_query($connect, $query);
         </button>
 
         <!-- Navigation -->
-        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
-            <a href="about.html" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">About Me</a>
-            <a href="contact.php" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Contact</a>
-            <a href="index.php" class="text-gray-500 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+        <nav class="main-nav hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="about.php" class="nav-link text-xl lg:text-2xl transition-colors">About Me</a>
+            <a href="contact.php" class="nav-link text-xl lg:text-2xl transition-colors">Contact</a>
+            <a href="index.php" class="nav-link active text-xl lg:text-2xl transition-colors">Portfolio</a>
         </nav>
 
         <!-- Mobile Navigation Menu -->
-        <nav id="mobileMenu"
-            class="fixed top-0 left-0 w-full h-full bg-white transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden z-50">
+        <nav id="mobileMenu" class="overlay">
+            <button id="closeMobileMenu" class="absolute top-4 right-4 text-3xl" style="color: #6E7B8B; background: none; border: none; cursor: pointer; font-size: 2rem;">&times;</button>
             <div class="flex flex-col items-center justify-center h-full gap-8">
-                <button id="closeMobileMenu" class="absolute top-4 right-4 text-gray-500 text-3xl">&times;</button>
-                <a href="about.html" class="text-gray-500 text-2xl hover:text-gray-600 transition-colors">About Me</a>
-                <a href="contact.php" class="text-gray-500 text-2xl hover:text-gray-600 transition-colors">Contact</a>
-                <a href="index.php" class="text-gray-500 text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+                <a href="about.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">About Me</a>
+                <a href="contact.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">Contact</a>
+                <a href="index.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">Portfolio</a>
             </div>
         </nav>
 
-        <!-- Profile Icon -->
-        <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
-            <img src="./images/menu-profile-image.png" alt="Profile" class="w-8 h-8 rounded-full">
-            <img src="./images/notification-icon.png" alt="Notification" class="w-5 h-4">
-        </div>
     </header>
 
     <main>
     <!-- Hero Section -->
-    <section class="px-4 md:px-16 py-8 md:py-16">
+    <section class="px-4 md:px-16 py-4 md:py-8">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-3xl md:text-4xl text-gray-500 mb-6 md:mb-8">Hi there!</h1>
-            <p class="font-secondary text-sm text-gray-500 leading-relaxed max-w-2xl mx-auto px-2 md:px-0">
+            <h1 class="text-3xl md:text-4xl mb-6 md:mb-8">Hi there!</h1>
+            <p class="font-secondary text-sm leading-relaxed max-w-2xl mx-auto px-2 md:px-0">
                 I'm a web designer, developer, and motion graphics artist with a passion for turning ideas into digital
                 experiences that look stunning, work flawlessly, and leave a lasting impression.
                 <br><br>
@@ -118,7 +112,7 @@ $results = mysqli_query($connect, $query);
     </section>
 
     <!-- Video Section -->
-    <section class="px-4 md:px-16 py-8 md:py-16">
+    <section class="px-4 md:px-16 py-4 md:py-6">
         <div class="max-w-4xl mx-auto text-center">
             <div class="bg-gray-300 rounded-lg overflow-hidden aspect-video">
                 <video id="player" class="w-full h-full" preload="metadata">
@@ -126,37 +120,37 @@ $results = mysqli_query($connect, $query);
                     <p>Your browser does not support the video tag.</p>
                 </video>
             </div>
-            <p class="font-secondary text-gray-500 text-sm mt-4">A showcase of my projects and creative process
+            <p class="font-secondary text-sm mt-2 video-description">A showcase of my projects and creative process
             </p>
         </div>
     </section>
 
     <!-- Filter Section -->
-    <section class="px-4 md:px-16 py-4 md:py-8">
+    <section class="px-4 md:px-16 py-2 md:py-4">
         <div class="flex justify-center">
             <div class="flex flex-wrap items-center justify-center gap-2 md:gap-4" id="filterButtons">
                 <button
-                    class="filter-btn bg-gray-500 text-white px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-600 transition-colors active"
+                    class="filter-btn px-4 md:px-6 py-2 rounded-full text-sm transition-colors active"
                     data-filter="all">
-                    All <span class="ml-2 text-xs">99</span>
+                    All <span class="ml-2 text-xs">6</span>
                 </button>
                 <button
-                    class="filter-btn border border-gray-300 text-gray-500 px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    class="filter-btn border px-4 md:px-6 py-2 rounded-full text-sm transition-colors"
                     data-filter="ui">
                     UI & UX
                 </button>
                 <button
-                    class="filter-btn border border-gray-300 text-gray-500 px-4 md:px-8 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    class="filter-btn border px-4 md:px-8 py-2 rounded-full text-sm transition-colors"
                     data-filter="motion">
                     Motion Graphics
                 </button>
                 <button
-                    class="filter-btn border border-gray-300 text-gray-500 px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    class="filter-btn border px-4 md:px-6 py-2 rounded-full text-sm transition-colors"
                     data-filter="rebrand">
                     Rebrand
                 </button>
                 <button
-                    class="filter-btn border border-gray-300 text-gray-500 px-4 md:px-6 py-2 rounded-full text-sm hover:bg-gray-100 transition-colors"
+                    class="filter-btn border px-4 md:px-6 py-2 rounded-full text-sm transition-colors"
                     data-filter="backend">
                     Backend
                 </button>
@@ -165,9 +159,17 @@ $results = mysqli_query($connect, $query);
     </section>
 
     <!-- Projects Grid -->
-    <section class="portfolio px-4 md:px-16 py-8 md:py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 portfolio-grid">
+    <section class="portfolio px-4 md:px-16 py-4 md:py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 portfolio-grid">
             <?php
+            $imageMap = array(
+                'flowsonic' => 'flowsonic_earbuds_x-ray_1_0000.jpg',
+                'sports' => 'stadium_1_1582.jpg',
+                'quatro' => 'quatro-project-outdoor.jpg',
+                'contact' => 'backend project image.png',
+                'portfolio contact' => 'backend project image.png'
+            );
+            
             while($row = mysqli_fetch_array($results)) {
                 $category = strtolower($row['flag']);
                 $categoryClass = 'ui';
@@ -179,14 +181,26 @@ $results = mysqli_query($connect, $query);
                     $categoryClass = 'rebrand';
                 }
                 
+                $projectName = strtolower($row['project']);
+                $projectImage = './images/image-placeholder.png';
+                
+                foreach($imageMap as $key => $image) {
+                    if(strpos($projectName, $key) !== false) {
+                        // URL encode the image filename to handle spaces
+                        $encodedImage = str_replace(' ', '%20', $image);
+                        $projectImage = './images/'.$encodedImage;
+                        break;
+                    }
+                }
+                
                 echo '<article class="portfolio-item project-card '.$categoryClass.'" data-category="'.$categoryClass.'">
-                    <div class="bg-gray-300 h-48 md:h-64 mb-4 relative overflow-hidden">
-                        <img src="./images/image-placeholder.png" alt="Project Thumbnail"
-                            class="center-icon w-16 h-14 md:w-24 md:h-20">
+                    <div class="bg-gray-300 aspect-[4/3] md:aspect-[3/2] mb-4 relative overflow-hidden rounded-lg">
+                        <img src="'.$projectImage.'" alt="'.htmlspecialchars($row['project'], ENT_QUOTES, 'UTF-8').'"
+                            class="w-full h-full object-cover" onerror="this.src=\'./images/image-placeholder.png\'">
                     </div>
                     <div class="text-center">
-                        <h3 class="text-gray-500 font-medium mb-2"><a href="detail.php?id='.$row['id'].'">'.$row['project'].'</a></h3>
-                        <p class="font-secondary text-gray-500 text-xs">'.$row['flag'].'</p>
+                        <h3 class="font-medium mb-2"><a href="detail.php?id='.$row['id'].'">'.$row['project'].'</a></h3>
+                        <p class="font-secondary text-xs">'.$row['flag'].'</p>
                     </div>
                 </article>';
             }
@@ -196,11 +210,11 @@ $results = mysqli_query($connect, $query);
     </main>
 
     <!-- Footer -->
-    <footer class="px-4 md:px-16 py-8 md:py-16 text-center">
-        <button class="back-to-top bg-gray-300 rounded-full p-3 md:p-4 mb-6 md:mb-8 hover:bg-gray-400 transition-colors">
+    <footer class="px-4 md:px-16 py-4 md:py-6 text-center">
+        <button class="back-to-top rounded-full p-3 md:p-4 mb-6 md:mb-8 transition-colors">
             <img src="./images/up-arrow-btn.png" alt="Back to top" class="w-5 h-5 md:w-6 md:h-6">
         </button>
-        <p class="font-secondary text-gray-500 text-xs">@Yi Cheng. All rights reserved.</p>
+        <p class="font-secondary text-xs copyright">@Yi Cheng. All rights reserved.</p>
     </footer>
 
     <script src="https://cdn.plyr.io/3.8.3/plyr.js"></script>

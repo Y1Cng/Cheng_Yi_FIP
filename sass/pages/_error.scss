@@ -24,9 +24,11 @@
 
         h1 {
             font-size: 1.8rem;
-            color: $color-active;
+            color: $color-headings;
             margin-bottom: $spacing-lg;
             line-height: 1.4;
+            font-family: $font-primary, sans-serif !important; // Poppins SemiBold
+            font-weight: 600 !important;
         }
 
         .error-text {
@@ -36,6 +38,8 @@
             p {
                 margin-bottom: $spacing-sm;
                 font-size: 1rem;
+                font-family: $font-secondary, sans-serif !important; // Roboto Regular
+                color: $color-body-text;
             }
         }
 

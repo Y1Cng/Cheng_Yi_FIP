@@ -27,17 +27,21 @@
             white-space: nowrap;
 
             &.active {
-                background-color: $color-active-bg;
-                color: white;
-                border: 1px solid $color-active-bg;
+                background-color: $color-primary-accent;
+                color: $color-white;
+                border: none;
             }
 
             &:not(.active) {
-                background: none;
-                border: 1px solid $color-light-gray;
-                color: $color-text;
+                background: transparent;
+                border: 1px solid $color-body-text;
+                color: $color-body-text;
+
+                &:hover {
+                    background-color: $color-secondary-accent;
+                    color: $color-headings;
+                }
             }
         }
     }
 }
-

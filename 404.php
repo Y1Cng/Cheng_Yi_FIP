@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="bg-white text-gray-600">
@@ -17,17 +17,17 @@
                 <img src="./images/profile-image.png" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
             </div>
             <div class="relative">
-                <div class="bg-gray-300 rounded-full px-4 py-2">
-                    <span class="text-white text-xs font-medium">Hire Me!</span>
+                <div class="hire-me-btn rounded-full px-4 py-2">
+                    <span class="hire-me-text text-xs font-medium">Hire Me!</span>
                 </div>
-                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110"></div>
-                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110 pointer-events-none"></div>
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5 pointer-events-none">
             </div>
         </div>
-        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
-            <a href="about.html" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">About Me</a>
-            <a href="contact.php" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Contact</a>
-            <a href="index.php" class="text-gray-500 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+        <nav class="main-nav hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="about.php" class="nav-link text-xl lg:text-2xl transition-colors">About Me</a>
+            <a href="contact.php" class="nav-link text-xl lg:text-2xl transition-colors">Contact</a>
+            <a href="index.php" class="nav-link text-xl lg:text-2xl transition-colors">Portfolio</a>
         </nav>
         <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
             <img src="./images/menu-profile-image.png" alt="Profile" class="w-8 h-8 rounded-full">

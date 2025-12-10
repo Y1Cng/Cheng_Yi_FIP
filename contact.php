@@ -12,56 +12,70 @@ ini_set('display_errors', 1);
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
 </head>
 
-<body class="bg-white text-gray-600">
+<body style="background-color: #F8F8F8; color: #6E7B8B;">
     <!-- Header -->
     <header class="flex items-center justify-between px-4 md:px-16 py-4 md:py-8">
         <!-- Logo Section -->
         <div class="flex items-center gap-2 md:gap-4">
             <div class="relative">
-                <img src="./images/profile-image.png" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
+                <img src="./images/profile-image.svg" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
             </div>
 
             <div class="relative">
-                <div class="bg-gray-300 rounded-full px-4 py-2">
-                    <span class="text-white text-xs font-medium">Hire Me!</span>
+                <div class="hire-me-btn rounded-full px-4 py-2">
+                    <span class="hire-me-text text-xs font-medium">Hire Me!</span>
                 </div>
-                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110">
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110 pointer-events-none">
                 </div>
-                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5 pointer-events-none">
             </div>
         </div>
 
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn"
+            class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer"
+            aria-label="Menu">
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+            <span class="block w-full h-0.5 bg-gray-500 transition-all duration-300"></span>
+        </button>
+
         <!-- Navigation -->
-        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
-            <a href="about.html" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">About Me</a>
-            <a href="contact.php" class="text-gray-500 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Contact</a>
-            <a href="index.php" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+        <nav class="main-nav hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="about.php" class="nav-link text-xl lg:text-2xl transition-colors">About Me</a>
+            <a href="contact.php" class="nav-link active text-xl lg:text-2xl transition-colors">Contact</a>
+            <a href="index.php" class="nav-link text-xl lg:text-2xl transition-colors">Portfolio</a>
         </nav>
 
-        <!-- Profile Icon -->
-        <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
-            <img src="./images/menu-profile-image.png" alt="Profile" class="w-8 h-8 rounded-full">
-            <img src="./images/notification-icon.png" alt="Notification" class="w-5 h-4">
-        </div>
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobileMenu" class="overlay">
+            <button id="closeMobileMenu" class="absolute top-4 right-4 text-3xl" style="color: #6E7B8B; background: none; border: none; cursor: pointer; font-size: 2rem;">&times;</button>
+            <div class="flex flex-col items-center justify-center h-full gap-8">
+                <a href="about.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">About Me</a>
+                <a href="contact.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">Contact</a>
+                <a href="index.php" class="nav-link text-2xl transition-colors" style="color: #6E7B8B;">Portfolio</a>
+            </div>
+        </nav>
+
     </header>
 
     <main>
     <!-- Contact Form Section -->
     <section class="px-4 md:px-16 py-8 md:py-16">
         <div class="max-w-2xl mx-auto">
-            <h1 class="text-3xl md:text-4xl text-gray-500 mb-8">Get In Touch</h1>
+            <h1 class="text-3xl md:text-4xl mb-8" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #0D0D0D;">Get In Touch</h1>
             <div class="mb-8">
-                <p class="font-secondary text-gray-500 text-sm mb-2">Your message here → My reply here → Amazing project everywhere.</p>
-                <p class="font-secondary text-gray-500 text-sm">Let's start a conversation that could lead to something awesome!</p>
+                <p class="font-secondary text-sm mb-2" style="color: #6E7B8B;">Your message here → My reply here → Amazing project everywhere.</p>
+                <p class="font-secondary text-sm" style="color: #6E7B8B;">Let's start a conversation that could lead to something awesome!</p>
                 <?php
                 if(isset($_GET['msg'])) {
-                    echo '<p class="mt-4 p-4 bg-gray-100 rounded-lg text-gray-700 text-sm">'.htmlspecialchars($_GET['msg'], ENT_QUOTES, 'UTF-8').'</p>';
+                    echo '<p class="mt-4 p-4 rounded-lg text-sm" style="background-color: #A8E6CF; color: #0D0D0D;">'.htmlspecialchars($_GET['msg'], ENT_QUOTES, 'UTF-8').'</p>';
                 }
                 ?>
             </div>
@@ -69,23 +83,23 @@ ini_set('display_errors', 1);
             <form method="post" action="includes/send.php" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label for="name" class="block text-gray-500 text-sm mb-2">Name*</label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500">
+                        <label for="name" class="block text-sm mb-2" style="color: #6E7B8B;">Name*</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: #6E7B8B; color: #0D0D0D;" onfocus="this.style.borderColor='#FF6F61'" onblur="this.style.borderColor='#6E7B8B'">
                     </div>
                     <div>
-                        <label for="phone" class="block text-gray-500 text-sm mb-2">Phone Number*</label>
-                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500">
+                        <label for="phone" class="block text-sm mb-2" style="color: #6E7B8B;">Phone Number*</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: #6E7B8B; color: #0D0D0D;" onfocus="this.style.borderColor='#FF6F61'" onblur="this.style.borderColor='#6E7B8B'">
                     </div>
                 </div>
                 <div>
-                    <label for="email" class="block text-gray-500 text-sm mb-2">Email*</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500">
+                    <label for="email" class="block text-sm mb-2" style="color: #6E7B8B;">Email*</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: #6E7B8B; color: #0D0D0D;" onfocus="this.style.borderColor='#FF6F61'" onblur="this.style.borderColor='#6E7B8B'">
                 </div>
                 <div>
-                    <label for="message" class="block text-gray-500 text-sm mb-2">Message*</label>
-                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-500"></textarea>
+                    <label for="message" class="block text-sm mb-2" style="color: #6E7B8B;">Message*</label>
+                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border rounded-lg focus:outline-none" style="border-color: #6E7B8B; color: #0D0D0D;" onfocus="this.style.borderColor='#FF6F61'" onblur="this.style.borderColor='#6E7B8B'"></textarea>
                 </div>
-                <button type="submit" name="submit" class="bg-gray-500 text-white px-6 py-2 rounded-full text-sm hover:bg-gray-600 transition-colors">Submit</button>
+                <button type="submit" name="submit" class="px-6 py-2 rounded-full text-sm transition-colors" style="background-color: #FF6F61; color: #FFFFFF;" onmouseover="this.style.backgroundColor='#FF8A7A'" onmouseout="this.style.backgroundColor='#FF6F61'">Submit</button>
             </form>
         </div>
     </section>
@@ -93,7 +107,7 @@ ini_set('display_errors', 1);
 
     <!-- Footer -->
     <footer class="px-4 md:px-16 py-8 md:py-16 text-center">
-        <p class="font-secondary text-gray-500 text-xs">@Yi Cheng. All rights reserved.</p>
+        <p class="font-secondary text-xs" style="color: #6E7B8B;">@Yi Cheng. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>

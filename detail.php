@@ -17,7 +17,7 @@ $row = mysqli_fetch_array($result);
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
@@ -34,20 +34,20 @@ $row = mysqli_fetch_array($result);
             </div>
 
             <div class="relative">
-                <div class="bg-gray-300 rounded-full px-4 py-2">
-                    <span class="text-white text-xs font-medium">Hire Me!</span>
+                <div class="hire-me-btn rounded-full px-4 py-2">
+                    <span class="hire-me-text text-xs font-medium">Hire Me!</span>
                 </div>
-                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110">
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110 pointer-events-none">
                 </div>
-                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5 pointer-events-none">
             </div>
         </div>
 
         <!-- Navigation -->
-        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
-            <a href="about.html" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">About Me</a>
-            <a href="contact.php" class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Contact</a>
-            <a href="index.php" class="text-gray-500 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+        <nav class="main-nav hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="about.php" class="nav-link text-xl lg:text-2xl transition-colors">About Me</a>
+            <a href="contact.php" class="nav-link text-xl lg:text-2xl transition-colors">Contact</a>
+            <a href="index.php" class="nav-link active text-xl lg:text-2xl transition-colors">Portfolio</a>
         </nav>
 
         <!-- Profile Icon -->
@@ -66,8 +66,8 @@ $row = mysqli_fetch_array($result);
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
                     <div class="mb-6">
-                        <p class="text-gray-500 text-sm mb-2"><strong>Tools Used:</strong> Lorem, Ipsum, Dolor</p>
-                        <p class="text-gray-500 text-sm mb-2"><strong>Techniques:</strong> Lorem, Ipsum, Dolor</p>
+                        <p class="text-gray-500 text-sm mb-2"><strong>Tools Used:</strong></p>
+                        <p class="text-gray-500 text-sm mb-2"><strong>Techniques:</strong></p>
                     </div>
                     <div class="mb-6">
                         <p class="font-secondary text-gray-500 text-sm leading-relaxed">'.$row['flag'].'</p>
