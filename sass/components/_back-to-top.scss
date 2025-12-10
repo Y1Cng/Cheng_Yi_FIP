@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.back-to-top {
+    position: fixed;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $color-light-gray;
+    border-radius: 50%;
+    @include flex-center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $color-text;
+    }
+
+    @media (max-width: 480px) {
+        bottom: $spacing-md;
+        right: $spacing-md;
+    }
+}
+

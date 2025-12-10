@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.filters-section {
+    padding: $spacing-md 0;
+    border-top: 1px solid $color-light-gray;
+    border-bottom: 1px solid $color-light-gray;
+
+    .filters {
+        text-align: center;
+        display: flex;
+        gap: $spacing-sm;
+        overflow-x: auto;
+        padding: $spacing-sm 0;
+        scrollbar-width: none;
+        justify-content: center;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 999px;
+            font-family: $font-main;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+
+            &.active {
+                background-color: $color-active-bg;
+                color: white;
+                border: 1px solid $color-active-bg;
+            }
+
+            &:not(.active) {
+                background: none;
+                border: 1px solid $color-light-gray;
+                color: $color-text;
+            }
+        }
+    }
+}
+

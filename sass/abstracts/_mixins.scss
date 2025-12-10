@@ -1,6 +1,6 @@
 @use 'variables' as *;
 
-/* Flex mixins */
+// Flex mixins
 @mixin flex-center {
     display: flex;
     align-items: center;
@@ -18,7 +18,7 @@
     flex-direction: column;
 }
 
-/* Button mixins */
+// Button mixins
 @mixin button-base {
     display: inline-flex;
     align-items: center;
@@ -52,20 +52,58 @@
     }
 }
 
-/* Grid mixins */
+@mixin button-style($bg: $color-active-bg, $color: #fff, $border: $color-active) {
+    padding: 0.75rem 1.5rem;
+    border-radius: $border-radius;
+    background-color: $bg;
+    color: $color;
+    border: 1px solid $border;
+    font-family: $font-main;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: $color-text-dark;
+        border-color: $color-text-dark;
+    }
+}
+
+// Grid mixins
 @mixin grid($columns: 3, $gap: $spacing-xl) {
     display: grid;
     grid-template-columns: repeat($columns, 1fr);
     gap: $gap;
 }
 
-/* Container mixins */
+@mixin responsive-grid($columns, $gap: $spacing-md) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+@mixin responsive-grid-breakpoints($mobile: 1, $tablet: 2, $desktop: 3, $gap: $spacing-xl) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat($mobile, 1fr);
+
+    @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-md - 1px}) {
+        grid-template-columns: repeat($tablet, 1fr);
+    }
+
+    @media (min-width: #{$breakpoint-md}) {
+        grid-template-columns: repeat($desktop, 1fr);
+    }
+}
+
+// Container mixins
 @mixin container {
     max-width: $breakpoint-xl;
     margin: 0 auto;
     padding: 0 $spacing-3xl;
 
-    @include mobile {
+    @media (max-width: #{$breakpoint-sm - 1px}) {
         padding: 0 $spacing-md;
     }
 }
@@ -73,12 +111,12 @@
 @mixin section-spacing {
     padding: $spacing-3xl $spacing-3xl;
 
-    @include mobile {
+    @media (max-width: #{$breakpoint-sm - 1px}) {
         padding: $spacing-xl $spacing-md;
     }
 }
 
-/* Responsive mixins */
+// Responsive mixins
 @mixin mobile {
     @media (max-width: #{$breakpoint-sm - 1px}) {
         @content;
@@ -100,20 +138,5 @@
 @mixin large-desktop {
     @media (min-width: #{$breakpoint-lg}) {
         @content;
-    }
-}
-
-/* Grid responsive mixin */
-@mixin responsive-grid($mobile: 1, $tablet: 2, $desktop: 3, $gap: $spacing-xl) {
-    display: grid;
-    gap: $gap;
-    grid-template-columns: repeat($mobile, 1fr);
-
-    @include tablet {
-        grid-template-columns: repeat($tablet, 1fr);
-    }
-
-    @include desktop {
-        grid-template-columns: repeat($desktop, 1fr);
     }
 }

@@ -1,0 +1,80 @@
+@use '../abstracts' as *;
+
+.portfolio {
+    padding: $spacing-lg 0;
+
+    @media (max-width: 480px) {
+        padding: $spacing-md 0;
+    }
+
+    .portfolio-row {
+        margin-bottom: $spacing-md;
+        display: flex;
+        gap: $spacing-xl;
+        flex-wrap: wrap;
+    }
+
+    .category-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: $spacing-sm;
+
+        .category-name {
+            font-size: 0.8rem;
+            color: $color-text;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-count {
+            font-size: 0.7rem;
+            color: $color-text;
+        }
+    }
+
+    .portfolio-grid {
+        @include responsive-grid(3, $spacing-lg);
+        margin-bottom: $spacing-xl;
+
+        @media (max-width: 1200px) {
+            @include responsive-grid(2, $spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            @include responsive-grid(1, $spacing-lg);
+        }
+
+        .portfolio-item {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-sm;
+
+            .project-img {
+                width: 100%;
+                height: 240px;
+                background-color: $color-light-gray;
+                margin-bottom: $spacing-sm;
+                @include flex-center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            h3 {
+                font-size: 1rem;
+                color: $color-active;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 0.85rem;
+                color: $color-text;
+            }
+        }
+    }
+}
+

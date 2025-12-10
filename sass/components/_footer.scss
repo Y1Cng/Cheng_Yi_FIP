@@ -1,6 +1,15 @@
 @use '../abstracts' as *;
 
-/* Footer Styles */
+.footer {
+    padding: $spacing-lg 0;
+    border-top: 1px solid $color-light-gray;
+    text-align: center;
+
+    p {
+        font-size: 0.85rem;
+    }
+}
+
 .site-footer {
     padding: $spacing-3xl $spacing-3xl;
     text-align: center;

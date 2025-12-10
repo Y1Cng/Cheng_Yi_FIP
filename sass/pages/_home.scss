@@ -1,0 +1,98 @@
+@use '../abstracts' as *;
+
+.hero {
+    padding: $spacing-xl 0;
+    max-width: 800px;
+    margin: 0 auto;
+
+    @media (max-width: 480px) {
+        padding: $spacing-lg 0;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        color: $color-active;
+        margin-bottom: $spacing-lg;
+        font-weight: 600;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+    }
+
+    .social-links {
+        @include flex-center;
+        gap: 1rem;
+        margin-top: $spacing-lg;
+
+        a {
+            width: 32px;
+            height: 32px;
+            @include flex-center;
+            border: 1px solid $color-light-gray;
+            border-radius: 50%;
+
+            svg {
+                width: 16px;
+                height: 16px;
+                stroke-width: 1.5;
+            }
+        }
+    }
+}
+
+.featured-works-section {
+    padding: $spacing-xl 0;
+
+    h2 {
+        font-size: 1.25rem;
+        color: $color-text;
+        margin-bottom: $spacing-lg;
+        text-align: center;
+    }
+
+    .featured-grid {
+        @include responsive-grid(4, 0);
+
+        @media (max-width: 1200px) {
+            @include responsive-grid(2, 0);
+        }
+
+        @media (max-width: 768px) {
+            @include responsive-grid(1, 0);
+        }
+
+        .featured-item {
+            width: 100%;
+            height: 200px;
+            @include flex-center;
+
+            &.light {
+                background-color: $color-light-gray;
+            }
+
+            &.dark {
+                background-color: $color-text;
+            }
+
+            img {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .back-to-top {
+        position: static;
+        display: block;
+        margin: $spacing-lg auto 0;
+    }
+}
+

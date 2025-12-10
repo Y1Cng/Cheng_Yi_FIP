@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.error-section {
+    padding: $spacing-xl 0;
+    min-height: calc(100vh - 200px);
+    @include flex-center;
+
+    .error-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+
+        .error-svg {
+            width: 800px;
+            height: auto;
+            margin: 0 auto $spacing-lg;
+            display: block;
+            max-width: 100%;
+
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: $color-active;
+            margin-bottom: $spacing-lg;
+            line-height: 1.4;
+        }
+
+        .error-text {
+            margin-bottom: $spacing-xl;
+            line-height: 1.6;
+
+            p {
+                margin-bottom: $spacing-sm;
+                font-size: 1rem;
+            }
+        }
+
+        .go-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: $spacing-sm;
+            @include button-style;
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}
+

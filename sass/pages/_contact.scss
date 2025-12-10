@@ -1,1 +1,81 @@
-@use '../abstracts';
+@use '../abstracts' as *;
+
+.contact-form-section {
+    padding: $spacing-xl 0;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    @media (max-width: 480px) {
+        padding: $spacing-lg 0;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: $color-active;
+        margin-bottom: $spacing-lg;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    .contact-intro {
+        margin-bottom: $spacing-xl;
+        line-height: 1.6;
+
+        p {
+            margin-bottom: $spacing-md;
+            font-size: 1rem;
+        }
+    }
+
+    .contact-form {
+        text-align: left;
+        max-width: 600px;
+        margin: 0 auto;
+
+        .form-row {
+            display: flex;
+            gap: $spacing-md;
+            margin-bottom: $spacing-md;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+
+            &.full-width {
+                width: 100%;
+                margin-bottom: $spacing-md;
+            }
+
+            label {
+                display: block;
+                font-size: 0.9rem;
+                color: $color-text;
+                margin-bottom: $spacing-xs;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 0.75rem;
+                border: 1px solid $color-text;
+                border-radius: $border-radius;
+                font-family: $font-main;
+                font-size: 1rem;
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        }
+
+        .submit-btn {
+            @include button-style;
+            margin-top: $spacing-md;
+        }
+    }
+}

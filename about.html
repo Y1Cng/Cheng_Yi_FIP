@@ -4,11 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Me | Yi Cheng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
+<body class="bg-white text-gray-600">
+    <!-- Header -->
+    <header class="flex items-center justify-between px-4 md:px-16 py-4 md:py-8">
+        <!-- Logo Section -->
+        <div class="flex items-center gap-2 md:gap-4">
+            <div class="relative">
+                <img src="./images/profile-image.png" alt="Profile" class="w-10 h-10 md:w-12 md:h-12 rounded-full">
+            </div>
 
+            <div class="relative">
+                <div class="bg-gray-300 rounded-full px-4 py-2">
+                    <span class="text-white text-xs font-medium">Hire Me!</span>
+                </div>
+                <div class="absolute inset-0 border-2 border-dashed border-gray-400 rounded-full scale-110">
+                </div>
+                <img src="./images/arrow-icon.png" alt="Arrow" class="absolute -right-8 top-0 w-10 h-5">
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="hidden md:flex items-center gap-8 lg:gap-16">
+            <a href="about.html" class="text-gray-500 text-xl lg:text-2xl hover:text-gray-600 transition-colors">About
+                Me</a>
+            <a href="contact.php"
+                class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Contact</a>
+            <a href="index.php"
+                class="text-gray-400 text-xl lg:text-2xl hover:text-gray-600 transition-colors">Portfolio</a>
+        </nav>
+
+        <!-- Profile Icon -->
+        <div class="flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2">
+            <img src="./images/menu-profile-image.png" alt="Profile" class="w-8 h-8 rounded-full">
+            <img src="./images/notification-icon.png" alt="Notification" class="w-5 h-4">
+        </div>
+    </header>
+
+    <main>
+        <!-- About Info Section -->
+        <section class="px-4 md:px-16 py-8 md:py-16">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl md:text-4xl text-gray-500 mb-8">About Me</h1>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-gray-300 h-64 md:h-80 rounded-lg">
+                        <img src="./images/profile-image.png" alt="Yi Cheng Profile"
+                            class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div>
+                        <p class="font-secondary text-gray-500 text-sm leading-relaxed mb-4">
+                            I'm Yi, a web developer, UI/UX designer, and motion graphics creator - I bring digital
+                            projects
+                            to life from code to animation.
+                        </p>
+                        <p class="font-secondary text-gray-500 text-sm leading-relaxed mb-4">
+                            Work ethic? Simple: I don't stop until it's right.
+                        </p>
+                        <p class="font-secondary text-gray-500 text-sm leading-relaxed mb-4">
+                            Tight deadline? All-nighter? Challenge accepted.
+                        </p>
+                        <p class="font-secondary text-gray-500 text-sm leading-relaxed">
+                            Let's collaborate—hit me up for projects that need sharp design and relentless execution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Works Section -->
+        <section class="px-4 md:px-16 py-8 md:py-16">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl md:text-3xl text-gray-500 mb-8 text-center">Explore my featured projects below</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-gray-200 h-32 md:h-48 rounded-lg"></div>
+                    <div class="bg-gray-400 h-32 md:h-48 rounded-lg"></div>
+                    <div class="bg-gray-200 h-32 md:h-48 rounded-lg"></div>
+                    <div class="bg-gray-400 h-32 md:h-48 rounded-lg"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="px-4 md:px-16 py-8 md:py-16 text-center">
+        <p class="font-secondary text-gray-500 text-xs">@Yi Cheng. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

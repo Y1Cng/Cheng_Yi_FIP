@@ -1,92 +1,117 @@
-const filterButtons = document.querySelectorAll('#filterButtons button');
-const projectCards = document.querySelectorAll('.project-card');
-const backToTopButton = document.querySelector('footer button');
-const navLinks = document.querySelectorAll('nav a');
-const mobileMenuBtn = document.querySelector('#mobileMenuBtn');
-const mobileMenu = document.querySelector('#mobileMenu');
-const closeMobileMenu = document.querySelector('#closeMobileMenu');
+(() => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const backToTopBtn = document.querySelector('.back-to-top');
+    const mobileMenuBtn = document.querySelector('#mobileMenuBtn');
+    const mobileMenu = document.querySelector('#mobileMenu');
+    const closeMobileMenu = document.querySelector('#closeMobileMenu');
 
-function handleFilterClick(event) {
-    const filter = event.target.getAttribute('data-filter');
-
-    // I'm removing active styles from all buttons first
-    filterButtons.forEach(btn => {
-        btn.classList.remove('active-filter', 'bg-gray-500', 'text-white');
-        btn.classList.add('border', 'border-gray-300', 'text-gray-500');
-    });
-
-    // I'm adding active styles to the clicked button
-    event.target.classList.add('active-filter', 'bg-gray-500', 'text-white');
-    event.target.classList.remove('border', 'border-gray-300', 'text-gray-500');
-
-    filterProjects(filter);
-}
-
-function filterProjects(filter) {
-    projectCards.forEach(card => {
-        if (filter === 'all') {
-            card.style.display = 'block';
-            card.style.opacity = '1';
-        } else {
-            const category = card.getAttribute('data-category');
-            if (category === filter) {
-                card.style.display = 'block';
-                card.style.opacity = '1';
+    function filterProjects(category) {
+        portfolioItems.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+                item.style.display = 'block';
+                item.style.opacity = '1';
             } else {
-                card.style.opacity = '0.3';
+                item.style.opacity = '0.3';
             }
+        });
+
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active', 'bg-gray-500', 'text-white');
+            btn.classList.add('border', 'border-gray-300', 'text-gray-500');
+            if (btn.dataset.filter === category) {
+                btn.classList.add('active', 'bg-gray-500', 'text-white');
+                btn.classList.remove('border', 'border-gray-300', 'text-gray-500');
+            }
+        });
+    }
+
+    function handleFilterClick(event) {
+        const selectedCategory = event.target.dataset.filter;
+        filterProjects(selectedCategory);
+    }
+
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+
+    function openMobileMenu() {
+        if (mobileMenu) {
+            mobileMenu.style.transform = 'translateX(0)';
         }
-    });
-}
+    }
 
-function handleBackToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+    function closeMobileMenuHandler() {
+        if (mobileMenu) {
+            mobileMenu.style.transform = 'translateX(-100%)';
+        }
+    }
 
-function handleCardMouseEnter(event) {
-    event.target.style.transform = 'translateY(-5px)';
-    event.target.style.transition = 'transform 0.3s ease';
-}
+    function initAnimations() {
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from('.portfolio-item', {
+                opacity: 0,
+                y: 20,
+                duration: 0.6,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: '.portfolio',
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
 
-function handleCardMouseLeave(event) {
-    event.target.style.transform = 'translateY(0)';
-}
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', handleFilterClick);
+        });
+    }
 
-function handleNavMouseEnter(event) {
-    event.target.style.transform = 'scale(1.05)';
-    event.target.style.transition = 'transform 0.2s ease';
-}
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', scrollToTop);
+    }
 
-function handleNavMouseLeave(event) {
-    event.target.style.transform = 'scale(1)';
-}
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+    }
 
-function openMobileMenu() {
-    mobileMenu.style.transform = 'translateX(0)';
-}
+    if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', closeMobileMenuHandler);
+    }
 
-function closeMobileMenuHandler() {
-    mobileMenu.style.transform = 'translateX(-100%)';
-}
+    window.addEventListener('load', initAnimations);
 
-filterButtons.forEach(button => {
-    button.addEventListener('click', handleFilterClick);
-});
+    function initVideoPlayer() {
+        const video = document.querySelector('#player');
+        if (video) {
+            video.addEventListener('loadedmetadata', function () {
+                video.currentTime = 0.1;
+                setTimeout(function () {
+                    video.currentTime = 0;
+                }, 100);
+            });
 
-backToTopButton.addEventListener('click', handleBackToTop);
+            const player = new Plyr('#player', {
+                controls: [
+                    'play-large',
+                    'play',
+                    'progress',
+                    'current-time',
+                    'duration',
+                    'mute',
+                    'volume',
+                    'settings',
+                    'fullscreen'
+                ],
+                settings: ['quality', 'speed'],
+                ratio: '16:9'
+            });
+        }
+    }
 
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', handleCardMouseEnter);
-    card.addEventListener('mouseleave', handleCardMouseLeave);
-});
+    window.addEventListener('load', initVideoPlayer);
 
-navLinks.forEach(link => {
-    link.addEventListener('mouseenter', handleNavMouseEnter);
-    link.addEventListener('mouseleave', handleNavMouseLeave);
-});
-
-mobileMenuBtn.addEventListener('click', openMobileMenu);
-closeMobileMenu.addEventListener('click', closeMobileMenuHandler);
+})();
